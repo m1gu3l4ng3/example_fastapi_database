@@ -19,8 +19,12 @@ engine = create_async_engine(
     SQLALCHEMY_DATABASE_URL,
     echo=True,
     connect_args = {
-        'ssl': False
-    }
+        'ssl': False,
+        'timeout': 120
+    },
+    pool_size=3,
+    max_overflow=20,
+    pool_timeout=20
 )
 
 Base = declarative_base(metadata=MetaData(schema=settings_db.postgres_schema))

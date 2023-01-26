@@ -8,7 +8,7 @@ class DataBaseSettings(BaseSettings):
     postgres_password: str
     postgres_db: str
     postgres_host: str
-    postgres_schema: str
+    postgres_schema: str = ''
 
 @lru_cache
 def get_db_settings() -> BaseSettings:
